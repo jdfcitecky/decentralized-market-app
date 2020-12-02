@@ -1,0 +1,40 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Create Asset</h1>
+    </div>
+</header>
+<section>
+    <div class="container py-5">
+        <h2>Asset detail</h2>
+        <!-- card -->
+        <form method="POST">
+            {{ asset_form.hidden_tag() }}
+            <div class="form-group">
+                {{ asset_form.asset_name.label }}
+                {{ asset_form.asset_name(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ asset_form.asset_unit.label }}
+                {{ asset_form.asset_unit(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ asset_form.asset_amount.label }}
+                {{ asset_form.asset_amount(
+                            class='form-control',
+                            type='number'
+                        ) }}
+            </div>
+            <div class="form-group">
+                {{ asset_form.pass_phrase.label }}
+                {{ asset_form.pass_phrase(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ asset_form.submit(class='btn btn-primary') }}
+            </div>
+        </form>
+    </div>
+    </div>
+</section>
+{% endblock %}

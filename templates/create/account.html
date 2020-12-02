@@ -1,0 +1,29 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Create Account</h1>
+    </div>
+</header>
+<section>
+    <div class="container py-5">
+        <h2>Account information</h2>
+        <!-- card -->
+        <form method="POST">
+            {{ acco_form.hidden_tag() }}
+            <div class="form-group">
+                {{ acco_form.name.label }}
+                {{ acco_form.name(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ acco_form.email.label }}
+                {{ acco_form.email(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ acco_form.submit(class='btn btn-primary') }}
+            </div>
+        </form>
+    </div>
+    </div>
+</section>
+{% endblock %}

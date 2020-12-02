@@ -1,0 +1,60 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Create Smart Contract</h1>
+    </div>
+</header>
+<section>
+    <div class="container py-5">
+        <h2>Contract detail</h2>
+        <!-- card -->
+        <form method="POST">
+            {{ contract_form.hidden_tag() }}
+            <div class="form-group">
+                {{ contract_form.sc_holder.label }}
+                {{ contract_form.sc_holder(class='form-control') }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.want_asset_id.label }}
+                {{ contract_form.want_asset_id(class='form-control',type='number') }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.want_asset_amount.label }}
+                {{ contract_form.want_asset_amount(
+                            class='form-control',
+                            type='number'
+                        ) }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.last_round.label }}
+                {{ contract_form.last_round(
+                            class='form-control',
+                            type='number'
+                        ) }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.pass_phrase.label }}
+                {{ contract_form.pass_phrase(
+                            class='form-control',
+                        ) }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.provide_asset_id.label }}
+                {{ contract_form.provide_asset_id(class='form-control',type='number') }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.provide_asset_amount.label }}
+                {{ contract_form.provide_asset_amount(
+                            class='form-control',
+                            type='number'
+                        ) }}
+            </div>
+            <div class="form-group">
+                {{ contract_form.submit(class='btn btn-primary') }}
+            </div>
+        </form>
+    </div>
+    </div>
+</section>
+{% endblock %}

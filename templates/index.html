@@ -1,0 +1,57 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Dencentrailze market</h1>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <h2>Smartcontract Indexer</h2>
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4 class="m-0">Search</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ query_form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ query_form.asset_name_give.label }}
+                        {{ query_form.asset_name_give(value=' ', class='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ query_form.asset_name_send.label }}
+                        {{ query_form.asset_name_send(value=' ', class='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ query_form.submit(class='btn btn-warning') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if smartcontracts_list %}
+    <div class="container">
+        <h3>Smartcontract list</h3>
+        <div class="row">
+            {% for smartcontract in smartcontracts_list %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img class="card-img-top" src="../static/picture/smart_contract.png" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ smartcontract.sid }}</h4>
+                        <p class="card-text">$ {{ smartcontract.asset_send }}</p>
+                        <p class="card-text">$ {{ smartcontract.asset_send_amount }}</p>
+                        <p class="card-text">$ {{ smartcontract.asset_receive }}</p>
+                        <p class="card-text">$ {{ smartcontract.asset_receive_amount }}</p>
+                        <a href="/smartcontract/{{ product.id }}/trade" class="btn btn-primary">Trade</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>You have already created an account!</h1>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <h5>Please record the following information, this application will not record any of your personal
+            information.
+        </h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set account = session.new_account %}
+                {% for key in account %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ account[key] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/">Home</a>
+    </div>
+</section>
+{% endblock %}
